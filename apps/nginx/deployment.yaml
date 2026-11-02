@@ -21,30 +21,27 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx
-        image: nginx:lets-try-to-break-it
-        ports:
-        - containerPort: 80
-        resources:
-          limits:
-            cpu: "500m"
-            memory: "128Mi"
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 80
-          initialDelaySeconds: 10
-          periodSeconds: 5
-          timeoutSeconds: 3
-          failureThreshold: 3
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 80
-          periodSeconds: 5
-
-
-
+        - name: nginx
+          image: nginx:stable
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "128Mi"
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            periodSeconds: 5
