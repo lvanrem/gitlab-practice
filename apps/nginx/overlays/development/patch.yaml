@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: day5-api
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: nginx
+          resources:
+            limits:
+              cpu: "250m"
+              memory: "128Mi"
+            requests:
+              memory: "32Mi"
+              cpu: "100m"

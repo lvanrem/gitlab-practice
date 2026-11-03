@@ -1,0 +1,11 @@
+namespace: day5-prod
+
+resources:
+  - ../../base
+
+patches:
+  - path: patch.yaml
+
+images:
+  - name: nginx
+    newTag: 1.28.0
