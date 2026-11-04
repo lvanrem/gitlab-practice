@@ -10,7 +10,7 @@ spec:
   selector:
     matchLabels:
       app: nginx
-      instance: {{.Relase.Name}}
+      instance: {{.Release.Name}}
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -20,7 +20,7 @@ spec:
     metadata:
       labels:
         app: nginx
-        instance: {{.Relase.Name}}
+        instance: {{.Release.Name}}
     spec:
       containers:
         - name: nginx
