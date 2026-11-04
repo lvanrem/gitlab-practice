@@ -4,9 +4,9 @@ metadata:
   name: "{{.Release.Name}}-api"
   labels:
     app: nginx
-    instance: { { .Release.Name } }
+    instance: {{.Release.Name}}
 spec:
-  replicas: { { .Values.replicaCount } }
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: nginx
@@ -27,11 +27,11 @@ spec:
             - containerPort: 80
           resources:
             limits:
-              cpu: { { .Values.cpuLimit } }
-              memory: { { .Values.memoryLimit } }
+              cpu: {{ .Values.cpuLimit }}
+              memory: {{ .Values.memoryLimit }}
             requests:
-              memory: { { .Values.memoryRequest } }
-              cpu: { { .Values.cpuRequest } }
+              memory: {{ .Values.memoryRequest }}
+              cpu: {{ .Values.cpuRequest }}
           livenessProbe:
             httpGet:
               path: /
@@ -42,6 +42,6 @@ spec:
             failureThreshold: 3
           readinessProbe:
             httpGet:
-              path: { { .Values.readinessPath } }
+              path: {{ .Values.readinessPath }}
               port: 80
             periodSeconds: 5
