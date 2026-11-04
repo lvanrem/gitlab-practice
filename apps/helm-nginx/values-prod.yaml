@@ -1,0 +1,6 @@
+replicaCount: 2
+nginxVersion: 1.28.0
+cpuLimit: "500m"
+memoryLimit: "128Mi"
+cpuRequest: "250m"
+memoryRequest: "64Mi"
